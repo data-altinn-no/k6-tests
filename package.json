@@ -1,0 +1,21 @@
+{
+  "name": "k6-tests",
+  "version": "1.0.0",
+  "description": "End-to-end test for functional and non-functional verifications",
+  "main": "postDeployTests.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/data-altinn-no/k6-tests.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/data-altinn-no/k6-tests/issues"
+  },
+  "homepage": "https://github.com/data-altinn-no/k6-tests#readme",
+  "dependencies": {
+    "@azure/identity": "^2.1.0",
+    "@azure/keyvault-certificates": "^4.5.0",
+    "@azure/keyvault-secrets": "^4.5.1"
+  }
+}
