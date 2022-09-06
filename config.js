@@ -16,10 +16,10 @@ if(__ENV.K6_SECRETS) {
 }
 
 export const baseUrls = {
-    dev: "https://apim-nadobe-dev.azure-api.net",
-    qa: "https://apim-nadobe-qa.azure-api.net",
-    staging: "https://test-api.data.altinn.no",
-    prod: "https://api.data.altinn.no"
+    dev: "https://dev-api.data.altinn.no/v1;rev=2",
+    qa: "https://apim-nadobe-qa.azure-api.net/v1",
+    staging: "https://test-api.data.altinn.no/v1",
+    prod: "https://api.data.altinn.no/v1"
 };
 
 export const baseUrl = baseUrls[__ENV.env];

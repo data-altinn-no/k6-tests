@@ -17,7 +17,7 @@ var accreditationBody = {
 };
 
 var url = (base) => {
-    return `${base}/v1/authorization`;
+    return `${base}/authorization`;
 };
 
 export default function testRequirements() {

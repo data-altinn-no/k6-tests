@@ -20,14 +20,16 @@ var accreditationBody = JSON.stringify({
 export default function testCreateHarvestDelete() {
     group('Harvest test', () => {
         let accreditationId = testCreate();
-        testHarvest(accreditationId);
-        testDelete(accreditationId);
+        if (accreditationId !== null) {
+            testHarvest(accreditationId);
+            testDelete(accreditationId);
+        }
     });
 }
 
 function testCreate() {
     var params = getParams(null, null);
-    let res = http.post(baseUrl + '/v1/authorization', accreditationBody, params);
+    let res = http.post(baseUrl + '/authorization', accreditationBody, params);
     let accreditationId = res.status == 200 || res.status == 201 ? JSON.parse(res.body).id : null;
     group('Create accredidation', () => {
         assert(res, {
@@ -36,7 +38,7 @@ function testCreate() {
             'POST accreditation - has accreditation': [(r) => accreditationId != null, () => "AccreditationId is null"]
         });
         if (accreditationId == null) {
-            fail("Accreditation is null, cannot continue");
+            console.error("Accreditation is null, cannot continue");
         }
     });
     return accreditationId;
@@ -44,7 +46,7 @@ function testCreate() {
 
 function testHarvest(accreditationId) {
     var params = getParams(null, null);
-    let res = http.get(baseUrl + '/v1/evidence/' + accreditationId + '/UnitBasicInformation', params);
+    let res = http.get(baseUrl + '/evidence/' + accreditationId + '/UnitBasicInformation', params);
     group('Harvest with accredidation', () => {
         assert(res,
             {
@@ -56,7 +58,7 @@ function testHarvest(accreditationId) {
 
 function testDelete(accreditationId) {
     var params = getParams(null, null);
-    let res = http.del(baseUrl + '/v1/accreditations/' + accreditationId, null, params);
+    let res = http.del(baseUrl + '/accreditations/' + accreditationId, null, params);
     group('Delete accredidation', () => {
         assert(res,
             {
