@@ -23,7 +23,7 @@ function escapeHTML(str) {
 export function generateJUnitXML(data, suiteName) {
   var failures = 0;
   var cases = [];
-  var time = data.metrics.iteration_duration.values.max ? data.metrics.iteration_duration.values.max : 0;
+  var time = data.state.testRunDurationMs;
   var checks = [];
   if (data.root_group.checks.length > 0) {
     checks = data.root_group.checks;
@@ -55,7 +55,7 @@ export function generateJUnitXML(data, suiteName) {
   return (
     `<?xml version="1.0" encoding="UTF-8" ?>\n` +
     `<testsuites duration="${time}">\n` +
-    `<testsuite name="${escapeHTML(suiteName)}" tests="${cases.length}" failures="${failures}">\n` +
+    `<testsuite name="${escapeHTML(suiteName)}" tests="${cases.length}" failures="${failures}" time="${time}">\n` +
     `${cases.join('\n')}\n</testsuite>\n</testsuites>`
   );
 }
