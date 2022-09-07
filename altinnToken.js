@@ -1,8 +1,8 @@
 import http from "k6/http";
 import encoding from "k6/encoding";
 
-let tokenUsername = __ENV.tokenUsername;
-let tokenPassword = __ENV.tokenPassword;
+let tokenUsername = JSON.parse(__ENV.tokenUsername);
+let tokenPassword = JSON.parse(__ENV.tokenPassword);
 
 const credentials = `${tokenUsername}:${tokenPassword}`;
 const encodedCredentials = encoding.b64encode(credentials);
