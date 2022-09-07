@@ -6,7 +6,6 @@ import { getParams } from './helper.js';
 
 function accredidationTest() {
     var params = getParams(null, null);
-    console.log(params);
     group('Test accredidation list', () => {
         let res = http.get(baseUrl + '/accreditations/', params);
         assert(res,{
