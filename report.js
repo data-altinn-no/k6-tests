@@ -54,8 +54,8 @@ export function generateJUnitXML(data, suiteName) {
   });
   return (
     `<?xml version="1.0" encoding="UTF-8" ?>\n` +
-    `<testsuites duration="${time}">\n` +
-    `<testsuite name="${escapeHTML(suiteName)}" tests="${cases.length}" failures="${failures}" time="${time}">\n` +
+    `<testsuites time="${time}">\n` +
+    `<testsuite name="${escapeHTML(suiteName)}" tests="${cases.length}" failures="${failures}">\n` +
     `${cases.join('\n')}\n</testsuite>\n</testsuites>`
   );
 }
