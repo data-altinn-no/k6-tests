@@ -23,7 +23,7 @@ function escapeHTML(str) {
 export function generateJUnitXML(data, suiteName) {
   var failures = 0;
   var cases = [];
-  var time = data.state.testRunDurationMs;
+  var time = Math.round(data.state.testRunDurationMs);
   var checks = [];
   if (data.root_group.checks.length > 0) {
     checks = data.root_group.checks;
