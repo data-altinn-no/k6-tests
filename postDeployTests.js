@@ -7,7 +7,6 @@ import getEvidenceCodes from './testMetadataEvidenceCodes.js';
 import createHarvestDelete from './testCreateHarvestDelete.js';
 import testRequirements from './testRequirements.js';
 
-let env = __ENV.env;
 export let options = useToken ? null : {
     tlsAuth: [
         {

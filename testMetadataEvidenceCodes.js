@@ -12,10 +12,9 @@ export default function testMetadataEvidenceCodes() {
 function testMetadata() {
     let params = getParams(null, null);
     let res = http.get(baseUrl + '/metadata/evidencecodes', params);
-
     group('MetadataEvidenceCode test', () => {
         if (check(res, {
-            'GET evidenceCodes - is status 200': [(r) => r.status === 200, (r) => `Expected 200, got ${r.status}, body: ${r.body}`]
+            'GET evidenceCodes - is status 200': (r) => r.status === 200
         })) {
             assert(res, {
                 'GET evidenceCodes - has response body': [(r) => r.body.length > 0, () => "Body was zero length"],
