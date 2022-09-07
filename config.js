@@ -23,5 +23,5 @@ export const baseUrls = {
 };
 
 export const baseUrl = baseUrls[__ENV.env];
-export const subscriptions = JSON.parse(__ENV.subscriptions);
+export const subscriptions = JSON.parse(JSON.parse(__ENV.subscriptions));
 export let useToken = __ENV.useToken !== undefined && __ENV.useToken
