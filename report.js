@@ -49,7 +49,7 @@ export function generateJUnitXML(data, suiteName) {
       cases.push(`<testcase name="${escapeHTML(check.name)}"/>`);
     } else {
       failures++;
-      cases.push(`<testcase name="${escapeHTML(check.name)}"><failure message="failed"/></testcase>`);
+      cases.push(`<testcase name="${escapeHTML(check.name)}" time="${time/checks.length}"><failure message="failed"/></testcase>`);
     }
   });
   return (
