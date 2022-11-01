@@ -16,7 +16,7 @@ if(__ENV.K6_SECRETS) {
 }
 
 export const baseUrls = {
-    dev: "https://dev-api.data.altinn.no/v1;rev=2",
+    dev: "https://dev-api.data.altinn.no/v1",
     qa: "https://apim-nadobe-qa.azure-api.net/v1",
     staging: "https://test-api.data.altinn.no/v1",
     prod: "https://api.data.altinn.no/v1"
