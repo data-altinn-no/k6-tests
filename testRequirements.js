@@ -76,7 +76,7 @@ function testPartyRequirement() {
 
     group('[PartyRequirement test] Positive party requirement test', () => {
         accreditationBody.requestor = "991825827";
-        let res = http.post(`${url(baseUrl)}?tokenonbehalfof=owner`, JSON.stringify(accreditationBody), params);
+        let res = http.post(`${url(baseUrl)}?tokenOnBehalfOfOwner=true`, JSON.stringify(accreditationBody), params);
         assert(res, {
             'POST SummertSkattegrunnlag - is status 200': [(r) => r.status === 200, (r) => `Expected 200, got ${r.status}, body: ${r.body}`]
         });
@@ -84,7 +84,7 @@ function testPartyRequirement() {
 
     group('[PartyRequirement test] Negative party requirement test', () => {
         accreditationBody.requestor = "998997801";
-        let res = http.post(`${url(baseUrl)}?tokenonbehalfof=owner`, JSON.stringify(accreditationBody), params);
+        let res = http.post(`${url(baseUrl)}?tokenOnBehalfOfOwner=true`, JSON.stringify(accreditationBody), params);
         assert(res, {
             'POST SummertSkattegrunnlag - is status 403': [(r) => r.status === 403, (r) => `Expected 403, got ${r.status}, body: ${r.body}`]
         });
@@ -96,8 +96,8 @@ function testProvideOwnTokenRequirement() {
     accreditationBody.subject = '07056120453';
     accreditationBody.evidenceRequests[0].evidenceCodeName = 'FregPerson';
 
-    group('[ProvideOwnTokenRequirement test] Test with OnBehalfOfToken set to owner', () => {
-        let res = http.post(`${url(baseUrl)}?tokenonbehalfof=owner`, JSON.stringify(accreditationBody), params);
+    group('[ProvideOwnTokenRequirement test] Test with tokenOnBehalfOfOwner', () => {
+        let res = http.post(`${url(baseUrl)}?tokenOnBehalfOfOwner=true`, JSON.stringify(accreditationBody), params);
         assert(res, {
             'POST FregPerson - is status 200': [(r) => r.status === 200, (r) => `Expected 200, got ${r.status}, body: ${r.body}`]
         });

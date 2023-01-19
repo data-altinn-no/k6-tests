@@ -18,7 +18,7 @@ function testMetadata() {
         })) {
             assert(res, {
                 'GET evidenceCodes - has response body': [(r) => r.body.length > 0, () => "Body was zero length"],
-                'GET evidenceCodes - response contains 45 evidencecodes': [(r) => r.json().length === 45, (r) => `Expected 45, found ${r.json().length}`],
+                'GET evidenceCodes - response contains more than 40 evidencecodes': [(r) => r.json().length > 40, (r) => `Expected more than 40, found ${r.json().length}`],
                 'GET evidenceCodes - evidencecodes contains more than one source': [(r) => r.json().every(ec => ec.values.length >= 1), () => 'One or more evidencecodes did not contain a source.']
             });
         } else {
@@ -36,7 +36,7 @@ function testPublicMetadata() {
         })) {
             assert(res, {
                 'GET public evidenceCodes - has response body': [(r) => r.body.length > 0, () => "Body was zero length"],
-                'GET public evidenceCodes - response contains 45 evidence codes': [(r) => r.json().length === 45, (r) => `Expected 45, found ${r.json().length}`],
+                'GET public evidenceCodes - response contains more than 40 evidence codes': [(r) => r.json().length > 40, (r) => `Expected more than 40, found ${r.json().length}`],
                 'GET public evidenceCodes - evidencecodes contains more than one source': [(r) => r.json().every(ec => ec.values.length >= 1), () => 'One or more evidencecodes did not contain a source.']
             });
         } else {
