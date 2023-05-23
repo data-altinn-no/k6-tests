@@ -4,7 +4,7 @@ import { textSummary } from 'https://jslib.k6.io/k6-summary/0.0.1/index.js';
 
 import getAccreditations from './testAccredidationList.js';
 import getEvidenceCodes from './testMetadataEvidenceCodes.js';
-import createHarvestDelete from './testCreateHarvestDelete.js';
+import testEvidenceCodes from './api/evidence.js';
 import testRequirements from './testRequirements.js';
 
 export let options = useToken ? null : {
@@ -19,8 +19,11 @@ export let options = useToken ? null : {
 
 export default function () {
     getAccreditations();
-    getEvidenceCodes();
-    createHarvestDelete();
+    var evidenceCodes = getEvidenceCodes();
+    
+    // test all plugins by enumerating evidence codes
+    testEvidenceCodes(evidenceCodes);
+
     testRequirements();
 };
 

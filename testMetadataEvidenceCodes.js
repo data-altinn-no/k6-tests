@@ -5,8 +5,10 @@ import { baseUrl } from './config.js'
 import { getParams } from './helper.js';
 
 export default function testMetadataEvidenceCodes() {
-    testMetadata();
+    var evidenceCodes = testMetadata();
     testPublicMetadata();
+
+    return evidenceCodes;
 }
 
 function testMetadata() {
@@ -25,6 +27,7 @@ function testMetadata() {
             console.error(`Expected 200, got ${res.status}, body: ${res.body}`);
         }
     });
+    return res;
 }
 
 function testPublicMetadata() {
