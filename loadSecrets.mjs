@@ -33,5 +33,5 @@ export default async function loadSecrets() {
     return JSON.stringify(secrets);
 }
 loadSecrets().then((secrets) => {
-    console.log(secrets);
+    // Do not log sensitive secrets to console
 });
