@@ -17,5 +17,8 @@
     "@azure/identity": "^4.5.0",
     "@azure/keyvault-certificates": "^4.5.0",
     "@azure/keyvault-secrets": "^4.5.1"
+  },
+  "overrides": {
+    "uuid": "^14.0.0"
   }
 }
